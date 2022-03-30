@@ -1,5 +1,5 @@
 /**
- *Submitted for verification at BscScan.com on 2021-09-20
+ *Submitted for verification at Etherscan.io on 2021-09-20
 */
 
 // This contract will generate rewards for life and will be used to fund FEG developments. 
@@ -295,7 +295,7 @@ contract ROXPerpRewardFund is Owned, ReentrancyGuard {
     using SafeMath for uint256;
     
     roxx _roxx;
-    address public ROX  = 0xa3D522c151aD654b36BDFe7a69D0c405193A22F9; // ROX token
+    address public ROX  = 0x378c77C5379cA07BBB5B3506c08a1C769dEC91c2; // ROX token
     uint256 public totalBurnt = 0;
     address public fund1 = 0xC35D37147CD4f918A7cc7e58a29E51559e385548; 
     address public fund2 = 0x620844ddBe24240e0BB2DbB40a322619B608FbF7; 
