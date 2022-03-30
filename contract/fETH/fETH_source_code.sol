@@ -1,12 +1,15 @@
 /**
- *Submitted for verification at BscScan.com on 2021-04-27
+ *Submitted for verification at Etherscan.io on 2021-04-01
+*/
+
+/**
+ *Submitted for verification at BscScan.com on 2021-02-28
 */
 
 // SPDX-License-Identifier: MIT
 
 
 pragma solidity ^0.8.1;
-
 library EnumerableSet {
     // To implement this library for multiple types with as little code
     // repetition as possible, we write it in terms of a generic Set type with
@@ -276,29 +279,7 @@ library EnumerableSet {
         return uint256(_at(set._inner, index));
     }
 }
-    
-    abstract contract ReentrancyGuard {
 
-    uint256 private constant _NOT_ENTERED = 1;
-    uint256 private constant _ENTERED = 2;
-
-    uint256 private _status;
-
-    constructor () {
-        _status = _NOT_ENTERED;
-    }
-
-    modifier nonReentrant() {
-
-        require(_status != _ENTERED, "ReentrancyGuard: reentrant call");
-
-        _status = _ENTERED;
-
-        _;
-
-        _status = _NOT_ENTERED;
-    }
-}
 
 
 // File: openzeppelin-solidity\contracts\token\ERC20\IERC20.sol
@@ -411,8 +392,7 @@ library Address {
         assembly { codehash := extcodehash(account) }
         return (codehash != accountHash && codehash != 0x0);
     }
-    
-    
+
     /**
      * @dev Replacement for Solidity's `transfer`: sends `amount` wei to
      * `recipient`, forwarding all available gas and reverting on errors.
@@ -519,178 +499,34 @@ library Address {
     }
 }
 
-library SafeMath {
-    /**
-     * @dev Returns the addition of two unsigned integers, reverting on
-     * overflow.
-     *
-     * Counterpart to Solidity's `+` operator.
-     *
-     * Requirements:
-     *
-     * - Addition cannot overflow.
-     */
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-        uint256 c = a + b;
-        require(c >= a, "SafeMath: addition overflow");
 
-        return c;
-    }
-
-    /**
-     * @dev Returns the subtraction of two unsigned integers, reverting on
-     * overflow (when the result is negative).
-     *
-     * Counterpart to Solidity's `-` operator.
-     *
-     * Requirements:
-     *
-     * - Subtraction cannot overflow.
-     */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        return sub(a, b, "SafeMath: subtraction overflow");
-    }
-
-    /**
-     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
-     * overflow (when the result is negative).
-     *
-     * Counterpart to Solidity's `-` operator.
-     *
-     * Requirements:
-     *
-     * - Subtraction cannot overflow.
-     */
-    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-        require(b <= a, errorMessage);
-        uint256 c = a - b;
-
-        return c;
-    }
-
-    /**
-     * @dev Returns the multiplication of two unsigned integers, reverting on
-     * overflow.
-     *
-     * Counterpart to Solidity's `*` operator.
-     *
-     * Requirements:
-     *
-     * - Multiplication cannot overflow.
-     */
-    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
-        // benefit is lost if 'b' is also tested.
-        // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
-        if (a == 0) {
-            return 0;
-        }
-
-        uint256 c = a * b;
-        require(c / a == b, "SafeMath: multiplication overflow");
-
-        return c;
-    }
-
-    /**
-     * @dev Returns the integer division of two unsigned integers. Reverts on
-     * division by zero. The result is rounded towards zero.
-     *
-     * Counterpart to Solidity's `/` operator. Note: this function uses a
-     * `revert` opcode (which leaves remaining gas untouched) while Solidity
-     * uses an invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     *
-     * - The divisor cannot be zero.
-     */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
-        return div(a, b, "SafeMath: division by zero");
-    }
-
-    /**
-     * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
-     * division by zero. The result is rounded towards zero.
-     *
-     * Counterpart to Solidity's `/` operator. Note: this function uses a
-     * `revert` opcode (which leaves remaining gas untouched) while Solidity
-     * uses an invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     *
-     * - The divisor cannot be zero.
-     */
-    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-        require(b > 0, errorMessage);
-        uint256 c = a / b;
-        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
-
-        return c;
-    }
-
-    /**
-     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
-     * Reverts when dividing by zero.
-     *
-     * Counterpart to Solidity's `%` operator. This function uses a `revert`
-     * opcode (which leaves remaining gas untouched) while Solidity uses an
-     * invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     *
-     * - The divisor cannot be zero.
-     */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-        return mod(a, b, "SafeMath: modulo by zero");
-    }
-
-    /**
-     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
-     * Reverts with custom message when dividing by zero.
-     *
-     * Counterpart to Solidity's `%` operator. This function uses a `revert`
-     * opcode (which leaves remaining gas untouched) while Solidity uses an
-     * invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     *
-     * - The divisor cannot be zero.
-     */
-    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-        require(b != 0, errorMessage);
-        return a % b;
-    }
-    
-    function ceil(uint a, uint m) internal pure returns (uint r) {
-        return (a + m - 1) / m * m;
-    }
-}
-
-contract fUSDT is IERC20, ReentrancyGuard {
+contract fETH is IERC20 {
     using Address for address;
-    using SafeMath for uint256;
     enum TxType { FromExcluded, ToExcluded, BothExcluded, Standard }
 
-    mapping (address => uint256) private rUsdtBalance;
-    mapping (address => uint256) private tUsdtBalance;
+    mapping (address => uint256) private rBnbBalance;
+    mapping (address => uint256) private tBnbBalance;
     mapping (address => mapping (address => uint256)) private _allowances;
 
     EnumerableSet.AddressSet excluded;
 
-    uint256 private tUsdtSupply;
-    uint256 private rUsdtSupply;
+    uint256 private tBnbSupply;
+    uint256 private rBnbSupply;
     uint256 private feesAccrued;
  
-    string private _name = 'FEG Wrapped USDT'; 
-    string private _symbol = 'fUSDT';
+    string private _name = 'FEG Wrapped ETH'; 
+    string private _symbol = 'fETH';
     uint8  private _decimals = 18;
     
     address private op;
     address private op2;
-    address public USDT = 0x55d398326f99059fF775485246999027B3197955;
     
     event  Deposit(address indexed dst, uint amount);
     event  Withdrawal(address indexed src, uint amount);
+
+    receive() external payable {
+        deposit();
+    }
 
     constructor () {
         op = address(0x4c9BC793716e8dC05d1F48D8cA8f84318Ec3043C);
@@ -712,13 +548,13 @@ contract fUSDT is IERC20, ReentrancyGuard {
     }
 
     function totalSupply() public view override returns (uint256) {
-        return tUsdtSupply;
+        return tBnbSupply;
     }
 
     function balanceOf(address account) public view override returns (uint256) {
-        if (EnumerableSet.contains(excluded, account)) return tUsdtBalance[account];
+        if (EnumerableSet.contains(excluded, account)) return tBnbBalance[account];
         (uint256 r, uint256 t) = currentSupply();
-        return (rUsdtBalance[account] * t)  / r;
+        return (rBnbBalance[account] * t)  / r;
     }
 
     function transfer(address recipient, uint256 amount) public override returns (bool) {
@@ -759,84 +595,57 @@ contract fUSDT is IERC20, ReentrancyGuard {
         return feesAccrued;
     }
     
-    function ClaimOPfee() public {
-        require (msg.sender == op);
-        uint256 transferToAmount = (IERC20(USDT).balanceOf(address(this))) - (tUsdtSupply);
-        _pushUnderlying(USDT, op, transferToAmount);
-        tUsdtSupply -= transferToAmount;
-      
-        
-    }
-    
-    function deposit(uint256 _amount) public  {
-        require(_amount > 0, "can't deposit nothing");
-        _pullUnderlying(USDT, msg.sender, _amount);
+    function deposit() public payable {
+        require(msg.value > 0, "can't deposit nothing");
         (uint256 r, uint256 t) = currentSupply();
-        uint256 fee = _amount / 100; 
+        tBnbSupply += msg.value;
+        uint256 fee = msg.value / 100; 
         uint256 df = fee / 10;
-        uint256 net = fee != 0 ? (_amount - (fee)) : _amount;
-        tUsdtSupply += _amount;
+        uint256 net = fee != 0 ? (msg.value - (fee)) : msg.value;
         if(isExcluded(msg.sender)){
-            tUsdtBalance[msg.sender] += (_amount- fee);
+            tBnbBalance[msg.sender] += (msg.value - fee);
         } 
-        feesAccrued += df;
-        rUsdtBalance[op] += ((df * r) / t);
-        rUsdtSupply += (((net + df) * r) / t);
-        rUsdtBalance[msg.sender] += ((net * r) / t);
-        emit Deposit(msg.sender, _amount);
+        feesAccrued += fee;
+        rBnbBalance[op] += ((df * r) / t);
+        rBnbSupply += (((net + df) * r) / t);
+        rBnbBalance[msg.sender] += ((net * r) / t);
+        emit Deposit(msg.sender, msg.value);
     }
 
-    function _pullUnderlying(address erc20, address from, uint amount)
-        internal
-        nonReentrant
-    {
-        bool xfer = IERC20(erc20).transferFrom(from, address(this), amount);
-        require(xfer, "ERR_ERC20_FALSE");
-    }
-    
-    
-    function withdraw(uint256 _amount) public  {
-        require(balanceOf(msg.sender) >= _amount && _amount <= totalSupply(), "invalid _amount");
+    function withdraw(uint amt) public {
+        require(balanceOf(msg.sender) >= amt && amt <= totalSupply(), "invalid amt");
         (uint256 r, uint256 t) = currentSupply();
-        uint256 fee = _amount / 100;
-        uint256 wf = fee / 10;
-        uint256 net = _amount - fee;
+        uint256 fee = amt / 100;
+        uint256 wf = fee / 8;
+        uint256 net = amt - fee;
         if(isExcluded(msg.sender)) {
-            tUsdtBalance[msg.sender] -= _amount;
-            rUsdtBalance[msg.sender] -= ((_amount * r) / t);
+            tBnbBalance[msg.sender] -= amt;
+            rBnbBalance[msg.sender] -= ((amt * r) / t);
         } else {
-            rUsdtBalance[msg.sender] -= ((_amount * r) / t);
+            rBnbBalance[msg.sender] -= ((amt * r) / t);
         }
-        tUsdtSupply -= (net + wf);
-        rUsdtSupply -= (((net + wf) * r ) / t);
-        rUsdtBalance[op] += ((wf * r) / t);
+        tBnbSupply -= (net + wf);
+        rBnbSupply -= (((net + wf) * r ) / t);
+        rBnbBalance[op] += ((wf * r) / t);
         feesAccrued += wf;
-        _pushUnderlying(USDT, msg.sender, net);
+        payable(msg.sender).transfer(net); 
         emit Withdrawal(msg.sender, net);
     }
     
-    function _pushUnderlying(address erc20, address to, uint amount)
-        internal
-        nonReentrant
-    {
-        bool xfer = IERC20(erc20).transfer(to, amount);
-        require(xfer, "ERR_ERC20_FALSE");
-    }
-    
-    function rUsdtToEveryone(uint256 amt) public {
+    function rBnbToEveryone(uint256 amt) public {
         require(!isExcluded(msg.sender), "not allowed");
         (uint256 r, uint256 t) = currentSupply();
-        rUsdtBalance[msg.sender] -= ((amt * r) / t);
-        rUsdtSupply -= ((amt * r) / t);
+        rBnbBalance[msg.sender] -= ((amt * r) / t);
+        rBnbSupply -= ((amt * r) / t);
         feesAccrued += amt;
     }
 
     function excludeFromFees(address account) external {
         require(msg.sender == op2, "op only");
         require(!EnumerableSet.contains(excluded, account), "address excluded");
-        if(rUsdtBalance[account] > 0) {
+        if(rBnbBalance[account] > 0) {
             (uint256 r, uint256 t) = currentSupply();
-            tUsdtBalance[account] = (rUsdtBalance[account] * (t)) / (r);
+            tBnbBalance[account] = (rBnbBalance[account] * (t)) / (r);
         }
         EnumerableSet.add(excluded, account);
     }
@@ -844,13 +653,13 @@ contract fUSDT is IERC20, ReentrancyGuard {
     function includeInFees(address account) external {
         require(msg.sender == op2, "op only");
         require(EnumerableSet.contains(excluded, account), "address excluded");
-        tUsdtBalance[account] = 0;
+        tBnbBalance[account] = 0;
         EnumerableSet.remove(excluded, account);
     }
     
-    function tUsdtFromrUsdt(uint256 rUsdtAmount) external view returns (uint256) {
+    function tBnbFromrBnb(uint256 rBnbAmount) external view returns (uint256) {
         (uint256 r, uint256 t) = currentSupply();
-        return (rUsdtAmount * t) / r;
+        return (rBnbAmount * t) / r;
     }
 
 
@@ -886,37 +695,37 @@ contract fUSDT is IERC20, ReentrancyGuard {
         uint256 fee = amt / 100;
         TxType tt = getTtype(sender, recipient);
         if (tt == TxType.ToExcluded) {
-            rUsdtBalance[sender] -= ((amt * r) / t);
-            tUsdtBalance[recipient] += (amt - fee);
-            rUsdtBalance[recipient] += (((amt - fee) * r) / t);
+            rBnbBalance[sender] -= ((amt * r) / t);
+            tBnbBalance[recipient] += (amt - fee);
+            rBnbBalance[recipient] += (((amt - fee) * r) / t);
         } else if (tt == TxType.FromExcluded) {
-            tUsdtBalance[sender] -= (amt);
-            rUsdtBalance[sender] -= ((amt * r) / t);
-            rUsdtBalance[recipient] += (((amt - fee) * r) / t);
+            tBnbBalance[sender] -= (amt);
+            rBnbBalance[sender] -= ((amt * r) / t);
+            rBnbBalance[recipient] += (((amt - fee) * r) / t);
         } else if (tt == TxType.BothExcluded) {
-            tUsdtBalance[sender] -= (amt);
-            rUsdtBalance[sender] -= ((amt * r) / t);
-            tUsdtBalance[recipient] += (amt - fee);
-            rUsdtBalance[recipient] += (((amt - fee) * r) / t);
+            tBnbBalance[sender] -= (amt);
+            rBnbBalance[sender] -= ((amt * r) / t);
+            tBnbBalance[recipient] += (amt - fee);
+            rBnbBalance[recipient] += (((amt - fee) * r) / t);
         } else {
-            rUsdtBalance[sender] -= ((amt * r) / t);
-            rUsdtBalance[recipient] += (((amt - fee) * r) / t);
+            rBnbBalance[sender] -= ((amt * r) / t);
+            rBnbBalance[recipient] += (((amt - fee) * r) / t);
         }
-        rUsdtSupply  -= ((fee * r) / t);
+        rBnbSupply  -= ((fee * r) / t);
         feesAccrued += fee;
         emit Transfer(sender, recipient, amt - fee);
     }
 
     function currentSupply() public view returns(uint256, uint256) {
-        if(rUsdtSupply == 0 || tUsdtSupply == 0) return (1000000000, 1);
-        uint256 rSupply = rUsdtSupply;
-        uint256 tSupply = tUsdtSupply;
+        if(rBnbSupply == 0 || tBnbSupply == 0) return (1000000000, 1);
+        uint256 rSupply = rBnbSupply;
+        uint256 tSupply = tBnbSupply;
         for (uint256 i = 0; i < EnumerableSet.length(excluded); i++) {
-            if (rUsdtBalance[EnumerableSet.at(excluded, i)] > rSupply || tUsdtBalance[EnumerableSet.at(excluded, i)] > tSupply) return (rUsdtSupply, tUsdtSupply);
-            rSupply -= (rUsdtBalance[EnumerableSet.at(excluded, i)]);
-            tSupply -= (tUsdtBalance[EnumerableSet.at(excluded, i)]);
+            if (rBnbBalance[EnumerableSet.at(excluded, i)] > rSupply || tBnbBalance[EnumerableSet.at(excluded, i)] > tSupply) return (rBnbSupply, tBnbSupply);
+            rSupply -= (rBnbBalance[EnumerableSet.at(excluded, i)]);
+            tSupply -= (tBnbBalance[EnumerableSet.at(excluded, i)]);
         }
-        if (rSupply < rUsdtSupply / tUsdtSupply) return (rUsdtSupply, tUsdtSupply);
+        if (rSupply < rBnbSupply / tBnbSupply) return (rBnbSupply, tBnbSupply);
         return (rSupply, tSupply);
     }
     
