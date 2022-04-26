@@ -1,6 +1,7 @@
 # Read Contract
 
 This document explains the various functions you can find and use in the "read contract" menu for FEG token in BSCscan.
+
 Direct link:  https://bscscan.com/address/0xacfc95585d80ab62f67a14c566c1b7a49fe91167#readContract
 
 
