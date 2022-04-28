@@ -9,7 +9,7 @@ Direct link:  https://bscscan.com/address/0xacfc95585d80ab62f67a14c566c1b7a49fe9
 
 ![1 allowance](https://user-images.githubusercontent.com/102466559/165341643-19d1f398-2071-4c2a-b10d-5653510018af.png)
 
-Info here
+Function that allows one wallet to use transferFrom function. The amount is how much can be taken out of your wallet by the other address.
 
 ## 2. balanceOf
 
@@ -27,7 +27,7 @@ This tells us the numbers of decimals that FEG has, which is 9.
 
 ![4 isExcluded](https://user-images.githubusercontent.com/102466559/165343557-ffe3b52d-fa09-42ed-ad57-376bbb8ced23.png)
 
-Info here
+Is the wallet excluded from the fees
 
 ## 5. name
 
