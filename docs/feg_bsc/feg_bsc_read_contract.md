@@ -45,7 +45,7 @@ Here you can see the current owner of the FEG token. Because the ownership was r
 
 ![7 reflection from token](https://user-images.githubusercontent.com/102466559/165345152-8890c749-6294-4e39-ba7a-cc6a82c85bd5.png)
 
-Info here
+Helper methode to calculate the reflections from a token with a certain amount
 
 ## 8. symbol
 
@@ -57,13 +57,13 @@ This is the symbol under which you can find FEG token in BSCscan and in various 
 
 ![9 tokenfromreflection](https://user-images.githubusercontent.com/102466559/165345479-4be652a2-4745-41e9-9452-70e93d5a2a2a.png)
 
-Info here
+Same as point 9.
 
 ## 10. totalFees
 
 ![10 totalfees](https://user-images.githubusercontent.com/102466559/165345575-8a3c2aec-a823-48e5-9cf4-e97db7ebe64e.png)
 
-Info here
+How much fees have been distributed out
 
 ## 11. totalSupply
 
